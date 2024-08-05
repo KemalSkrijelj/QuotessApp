@@ -1,5 +1,8 @@
 .main-main {
-  min-height: 63vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 67vh;
   background-image: url("./assets/back1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
