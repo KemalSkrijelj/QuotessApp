@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  min-height: 5rem;
+  width: 100%;
+  background-color: rgb(32,30,124);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
+  width: 50%;
+  color: white;
+  text-decoration: none;
+}
+.buttons {
+  width: 50%;
+}
