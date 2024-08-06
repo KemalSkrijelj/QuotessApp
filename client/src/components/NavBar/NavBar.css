@@ -2,7 +2,7 @@
   display: flex;
   min-height: 5rem;
   width: 100%;
-  background-color: rgb(32,30,124);
+  background-color: rgb(92,186,174);
 }
 .logo {
   display: flex;
@@ -14,4 +14,20 @@
 }
 .buttons {
   width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.btn-logout{
+  background-color: red;
+  padding: 12px;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+.btn-logout:hover {
+  scale: 1.1;
+  transition: all ease-in 1s;
 }

@@ -1,7 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import { AppContext } from "../../context/AppContext";
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -23,7 +23,8 @@ const Login = () => {
     ) {
       localStorage.setItem("loggedInUser", JSON.stringify(user));
       setLoggedInUser(user);
-      navigate("/");
+      navigate("/quotes");
+      alert("Uspesno ste ulogovani");
     } else {
       alert("Nisu ispravni kredencijali.");
     }
@@ -32,7 +33,15 @@ const Login = () => {
   return (
     <Formik>
       {(props) => (
-        <Form className="form-auth" style={{display:"flex",flexDirection:"column", minHeight: "40vh", alignItems: "center" }}>
+        <Form
+          className="form-auth"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "40vh",
+            alignItems: "center",
+          }}
+        >
           <h1>Login</h1>
           <div
             className="inputs"
@@ -41,7 +50,7 @@ const Login = () => {
               width: "100%",
               flexDirection: "column",
               gap: "20px",
-              marginTop:"20px"
+              marginTop: "20px",
             }}
           >
             <Field
@@ -59,9 +68,19 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button className="submit" type="submit" onClick={handleSubmit}>
+          <button
+            className="submit"
+            type="submit"
+            onClick={handleSubmit}
+          >
             Submit
           </button>
+          <p>
+            If you don't have acc, sign up{" "}
+            <NavLink style={{ color: "white" }} to={"/signUp"}>
+              here
+            </NavLink>
+          </p>
         </Form>
       )}
     </Formik>
@@ -69,4 +88,3 @@ const Login = () => {
 };
 
 export default Login;
-

@@ -1,10 +1,17 @@
-/* eslint-disable react/prop-types */
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const AppContext = createContext();
 
 const UserProvider = ({ children }) => {
   const [loggedInUser, setLoggedInUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("loggedInUser");
+    if (storedUser) {
+      setLoggedInUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   return (
     <AppContext.Provider value={{ loggedInUser, setLoggedInUser }}>
@@ -13,5 +20,8 @@ const UserProvider = ({ children }) => {
   );
 };
 
+UserProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
-export { AppContext, UserProvider  };
+export { AppContext, UserProvider };
