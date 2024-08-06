@@ -33,6 +33,11 @@
 }
 
 .form-auth {
+<<<<<<< HEAD
+=======
+  display: flex;
+  flex-direction: column;
+>>>>>>> main
   padding: 10px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -40,6 +45,10 @@
   max-width: 400px;
   margin: 0 auto;
   color: white;
+<<<<<<< HEAD
+=======
+  align-items: center;
+>>>>>>> main
 }
 
 .form-auth label {
@@ -80,7 +89,11 @@ input[type="checkbox"] {
 
 .submit {
   display: block;
+<<<<<<< HEAD
   margin: 1.5rem 0;
+=======
+  margin: 0.75rem 0;
+>>>>>>> main
   padding: 0.45rem 0.5rem;
   background-color: #4299e1;
   color: #1a202c;

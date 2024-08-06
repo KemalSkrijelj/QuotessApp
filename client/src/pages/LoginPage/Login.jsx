@@ -1,7 +1,11 @@
 import { Field, Form, Formik } from "formik";
 import { AppContext } from "../../context/AppContext";
 import { useContext, useState } from "react";
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
+=======
+import { NavLink, useNavigate } from "react-router-dom";
+>>>>>>> main
 
 const Login = () => {
   const navigate = useNavigate();
@@ -23,7 +27,12 @@ const Login = () => {
     ) {
       localStorage.setItem("loggedInUser", JSON.stringify(user));
       setLoggedInUser(user);
+<<<<<<< HEAD
       navigate("/");
+=======
+      navigate("/quotes");
+      alert("Uspesno ste ulogovani");
+>>>>>>> main
     } else {
       alert("Nisu ispravni kredencijali.");
     }
@@ -32,7 +41,19 @@ const Login = () => {
   return (
     <Formik>
       {(props) => (
+<<<<<<< HEAD
         <Form className="form-auth" style={{display:"flex",flexDirection:"column", minHeight: "40vh", alignItems: "center" }}>
+=======
+        <Form
+          className="form-auth"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "40vh",
+            alignItems: "center",
+          }}
+        >
+>>>>>>> main
           <h1>Login</h1>
           <div
             className="inputs"
@@ -41,7 +62,11 @@ const Login = () => {
               width: "100%",
               flexDirection: "column",
               gap: "20px",
+<<<<<<< HEAD
               marginTop:"20px"
+=======
+              marginTop: "20px",
+>>>>>>> main
             }}
           >
             <Field
@@ -59,9 +84,25 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+<<<<<<< HEAD
           <button className="submit" type="submit" onClick={handleSubmit}>
             Submit
           </button>
+=======
+          <button
+            className="submit"
+            type="submit"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+          <p>
+            If you don't have acc, sign up{" "}
+            <NavLink style={{ color: "white" }} to={"/signUp"}>
+              here
+            </NavLink>
+          </p>
+>>>>>>> main
         </Form>
       )}
     </Formik>
@@ -69,4 +110,7 @@ const Login = () => {
 };
 
 export default Login;
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
