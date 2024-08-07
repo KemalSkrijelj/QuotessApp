@@ -2,11 +2,8 @@
   display: flex;
   min-height: 5rem;
   width: 100%;
-<<<<<<< HEAD
   background-color: rgb(32,30,124);
-=======
   background-color: rgb(92,186,174);
->>>>>>> main
 }
 .logo {
   display: flex;
@@ -18,8 +15,6 @@
 }
 .buttons {
   width: 50%;
-<<<<<<< HEAD
-=======
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -36,5 +31,4 @@
 .btn-logout:hover {
   scale: 1.1;
   transition: all ease-in 1s;
->>>>>>> main
 }

@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import { NavLink } from "react-router-dom";
-import "./NavBar.css";
-const NavBar = () => {
-=======
 import { NavLink, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import { AppContext } from "../../context/AppContext";
@@ -18,18 +13,10 @@ const NavBar = () => {
     navigate("login");
   };
 
->>>>>>> main
   return (
     <>
       <div className="navbar">
         <div className="logo">
-<<<<<<< HEAD
-          <NavLink to={'/'} className='logo'>
-            <h1>QuotesApp</h1>
-          </NavLink>
-        </div>
-        <div className="buttons"></div>
-=======
           <NavLink to={"/"} className="logo">
             <h1>QuotesApp</h1>
           </NavLink>
@@ -44,7 +31,6 @@ const NavBar = () => {
             </button>
           )}
         </div>
->>>>>>> main
       </div>
     </>
   );

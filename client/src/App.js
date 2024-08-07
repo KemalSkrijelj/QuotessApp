@@ -7,6 +7,8 @@ import SignUp from "./pages/SignUp/SignUp";
 import Login from "./pages/LoginPage/Login";
 import Quotes from "./pages/Quotes/Quotes";
 import { UserProvider } from "./context/AppContext";
+import ProtectedRoute from "../src/components/protect/ProtectedRoute";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -15,9 +17,24 @@ function App() {
         <NavBar />
         <main className="main-main">
           <Routes>
+            <Route
+              path="*"
+              element={
+                <ProtectedRoute>
+                  <NotFound />
+                </ProtectedRoute>
+              }
+            />
             <Route path="/login" element={<Login />} />
             <Route path="/signUp" element={<SignUp />} />
-            <Route path="/quotes" element={<Quotes />} />
+            <Route
+              path="/quotes"
+              element={
+                <ProtectedRoute>
+                  <Quotes />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </main>
         <Footer />

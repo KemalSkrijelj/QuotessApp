@@ -1,0 +1,9 @@
+.quotes {
+  height: 67vh;
+  width: 100%;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 1em;
+}
