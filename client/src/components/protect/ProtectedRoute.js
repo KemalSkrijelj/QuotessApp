@@ -8,7 +8,7 @@ const ProtectedRoute = ({ children }) => {
   if (localLoggedInUser) {
     return children;
   } else {
-    return (localLoggedInUser ? <Login /> : <SignUp />);
+    return localLoggedInUser ? <SignUp /> : <Login />;
   }
 };
 

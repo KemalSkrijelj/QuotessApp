@@ -1,7 +1,13 @@
 import "./Modal.css";
 import React, { useState } from "react";
-const Modal = ({ children, onConfirm, onCancel }) => {
+const Modal = ({ onConfirm, message }) => {
   const [isActive, setIsActive] = useState(true);
+  const handleConfirm = () => {
+    setIsActive(false);
+    if (onConfirm) {
+      onConfirm();
+    }
+  };
   return (
     <>
       {isActive && (
@@ -12,9 +18,9 @@ const Modal = ({ children, onConfirm, onCancel }) => {
                 &times;
               </p>
             </div>
-            <div className="modal-content"></div>
+            <div className="modal-content">{message}</div>
             <div className="modal-footer">
-              <button className="btn btn-submit" onClick={onConfirm}>
+              <button className="btn btn-submit" onClick={handleConfirm}>
                 OK
               </button>
             </div>

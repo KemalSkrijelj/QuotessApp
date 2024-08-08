@@ -1,10 +1,35 @@
 .card {
   display: flex;
-  flex-direction: column;
   width: 400px;
-  height: auto;
+  height: 170px;
   padding: 1rem;
   background-color: rgb(92,186,174, 0.9);
   border-radius: 10px;
   color: white;
+}
+.leftSide {
+  display: flex;
+  width: 20%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.rightSide {
+  position: relative;
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+}
+.author{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.percentage{
+  display: flex;
+  height: 80px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }

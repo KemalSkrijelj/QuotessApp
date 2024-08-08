@@ -1,5 +1,5 @@
-import React, { createContext, useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { createContext, useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 const AppContext = createContext();
 
@@ -18,10 +18,6 @@ const UserProvider = ({ children }) => {
       {children}
     </AppContext.Provider>
   );
-};
-
-UserProvider.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export { AppContext, UserProvider };
