@@ -21,6 +21,10 @@
   flex-direction: column;
 }
 .author{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   position: absolute;
   right: 0;
   bottom: 0;
