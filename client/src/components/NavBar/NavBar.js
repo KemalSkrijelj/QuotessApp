@@ -10,9 +10,11 @@ const NavBar = () => {
   const handleLogout = () => {
     setLoggedInUser(null);
     localStorage.removeItem("loggedInUser");
-    navigate("login");
+    navigate("/");
   };
-
+  const handleLogin = () => {
+    navigate("/login");
+  };
   return (
     <>
       <div className="navbar">
@@ -22,12 +24,13 @@ const NavBar = () => {
           </NavLink>
         </div>
         <div className="buttons">
-          {loggedInUser && (
-            <button
-              className="btn-logout"
-              onClick={handleLogout}
-            >
+          {loggedInUser ? (
+            <button className="btn-logout" onClick={handleLogout}>
               Logout
+            </button>
+          ) : (
+            <button className="btn-login" onClick={handleLogin}>
+              Login
             </button>
           )}
         </div>

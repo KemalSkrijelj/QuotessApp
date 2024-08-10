@@ -37,7 +37,7 @@
   flex-direction: column;
   padding: 10px;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0,98,98, 0.5);
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
@@ -85,8 +85,8 @@ input[type="checkbox"] {
   display: block;
   margin: 0.75rem 0;
   padding: 0.45rem 0.5rem;
-  background-color: #4299e1;
-  color: #1a202c;
+  background-color: rgb(0,128,0);
+  color: white;
   border: none;
   border-radius: 10px;
   width: 100%;
@@ -100,4 +100,10 @@ select.input-error {
 }
 .submit:disabled{
   opacity: 0.35;
+}
+@media only screen and (min-width: 280px) and (max-width: 1024px) {
+
+  .form-auth {
+    width: 90%;
+  }
 }

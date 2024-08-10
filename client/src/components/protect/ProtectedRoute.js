@@ -1,6 +1,5 @@
 import React from "react";
-import Login from "../../pages/LoginPage/Login";
-import SignUp from "../../pages/SignUp/SignUp";
+import Home from "../../pages/Home/Home";
 
 const ProtectedRoute = ({ children }) => {
   const localLoggedInUser = localStorage.getItem("loggedInUser");
@@ -8,7 +7,7 @@ const ProtectedRoute = ({ children }) => {
   if (localLoggedInUser) {
     return children;
   } else {
-    return localLoggedInUser ? <SignUp /> : <Login />;
+    return <Home/>;
   }
 };
 

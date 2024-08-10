@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useEffect } from "react";
 import "./Pagination.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
@@ -8,6 +9,12 @@ const Pagination = ({ numOfPages, setPage, page }) => {
   for (let i = 1; i <= numOfPages; i++) {
     arr.push(i);
   }
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [page]);
   return (
     <div className="pagination">
       <button
@@ -26,7 +33,7 @@ const Pagination = ({ numOfPages, setPage, page }) => {
           <button
             className="pagination-btn"
             key={index}
-            style={{ backgroundColor: isPageActive ? "#5cbaae" : "#9a908a", cursor:"pointer" }}
+            style={{ backgroundColor: isPageActive ? "#136c6c" : "#9a908a", cursor:"pointer", color: "white" }}
             onClick={() => {
               setPage(value);
             }}

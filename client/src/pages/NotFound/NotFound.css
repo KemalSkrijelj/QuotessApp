@@ -5,6 +5,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: 
+    url(../NotFound/404-Page-Blog-Cover.png);
   h1{
     font-size: 4rem;
   }

@@ -42,3 +42,19 @@
   border: none;
   padding: 10px;
 }
+@media only screen and (min-width: 280px) and (max-width: 1024px) {
+  .quotes {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .addToDo {
+    button{
+      width: 300px;
+    }
+  }
+  .adding{
+    flex-direction: column;
+  }
+  .input-todo{
+    width: 300px;
+  }
+}

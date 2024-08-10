@@ -3,7 +3,7 @@
   width: 400px;
   height: 170px;
   padding: 1rem;
-  background-color: rgb(92,186,174, 0.9);
+  background-color: rgba(0,98,98, 0.9);
   border-radius: 10px;
   color: white;
 }
@@ -36,4 +36,9 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
+}
+@media only screen and (min-width: 280px) and (max-width: 1024px) {
+  .card {
+    width: 300px;
+  }
 }

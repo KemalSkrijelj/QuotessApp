@@ -2,8 +2,7 @@
   display: flex;
   min-height: 5rem;
   width: 100%;
-  background-color: rgb(32,30,124);
-  background-color: rgb(92,186,174);
+  background-color: rgb(0,98,98);
 }
 .logo {
   display: flex;
@@ -31,4 +30,34 @@
 .btn-logout:hover {
   scale: 1.1;
   transition: all ease-in 1s;
+}
+.btn-login{
+  background-color: green;
+  padding: 12px;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+.btn-login:hover {
+  scale: 1.1;
+  transition: all ease-in 1s;
+}
+@media only screen and (min-width: 280px) and (max-width: 1024px) {
+  .navbar {
+    display: flex;
+    min-height: 5rem;
+    width: 100%;
+    background-color: rgb(0,98,98);
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    width: 50%;
+    color: white;
+    text-decoration: none;
+  }
+  
 }
