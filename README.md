@@ -1,4 +1,4 @@
-QuotesApp
+#QuotesApp
 QuotesApp is a simple React application that allows users to browse, add, and manage quotes. The application features user-friendly pagination, like/dislike buttons for each quote, and persistence of added quotes even after a page reload. The app is also equipped with a modal that displays upon successful login and when new quotes are added.
 
 Table of Contents
