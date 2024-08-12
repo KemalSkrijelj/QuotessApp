@@ -11,7 +11,14 @@ const Home = () => {
             your favorite quotes!
           </h2>
           <h3>
-            If you want to see the quotes, you need to{" "}
+            If you want to see the{" "}
+            <NavLink
+              style={{ textDecoration: "none", color: "rgb(0,98,98)" }}
+              to={"/quotes"}
+            >
+              quotes
+            </NavLink>
+            , you need to{" "}
             <NavLink
               style={{ textDecoration: "none", color: "rgb(0,98,98)" }}
               to={"/login"}
