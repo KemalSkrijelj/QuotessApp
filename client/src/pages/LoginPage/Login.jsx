@@ -8,40 +8,71 @@ const Login = () => {
   const navigate = useNavigate();
   const { setLoggedInUser } = useContext(AppContext);
   const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState({
+    title: "",
+    message: "",
+    type: "",
+  });
 
+  const handleSubmit = async (values) => {
+    try {
+      const response = await fetch("http://localhost:8000/sessions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: values.username,
+          password: values.password,
+        }),
+      });
 
-  const handleSubmit = (values) => {
-    const user = {
-      email: values.email,
-      password: values.password,
-    };
-    const localUserString = localStorage.getItem("user");
-    const localUser = JSON.parse(localUserString);
-    if (
-      localUser &&
-      user.email === localUser.email &&
-      user.password === localUser.password
-    ) {
-      localStorage.setItem("loggedInUser", JSON.stringify(user));
-      setLoggedInUser(user);
-      setShowModal(true); 
-    } else {
-      alert("Nisu ispravni kredencijali.");
+      const data = await response.json();
+
+      if (response.ok) {
+        const { accessToken } = data;
+
+        localStorage.setItem("token", accessToken);
+        setLoggedInUser({ token: accessToken });
+
+        setModalContent({
+          title: "Login Successful",
+          message: "You have successfully logged in!",
+          type: "success",
+        });
+        setShowModal(true);
+      } else {
+        setModalContent({
+          title: "Login Failed",
+          message: "Invalid credentials",
+          type: "error",
+        });
+        setShowModal(true);
+      }
+    } catch (error) {
+      setModalContent({
+        title: "Error",
+        message: "An error occurred during login",
+        type: "error",
+      });
+      setShowModal(true);
     }
   };
 
   const handleModalClick = () => {
-    setShowModal(false); 
-    navigate("/quotes"); 
+    if (modalContent.type === "success") {
+      navigate("/quotes");
+    }
+    setShowModal(false);
   };
 
   return (
     <>
       <Formik
-        initialValues={{ email: "", password: "" }}
+        initialValues={{ username: "", password: "" }}
         onSubmit={handleSubmit}
       >
-        {(props) => (
+        {() => (
           <Form
             className="form-auth"
             style={{
@@ -62,7 +93,11 @@ const Login = () => {
                 marginTop: "20px",
               }}
             >
-              <Field type="email" name="email" placeholder="Enter your email" />
+              <Field
+                type="text"
+                name="username"
+                placeholder="Enter your username"
+              />
               <Field
                 type="password"
                 name="password"
@@ -85,8 +120,9 @@ const Login = () => {
       {showModal && (
         <Modal
           onConfirm={handleModalClick}
-          title="Login Successful"
-          message="You have successfully logged in!"
+          title={modalContent.title}
+          message={modalContent.message}
+          type={modalContent.type}
           onClose={() => setShowModal(false)}
         />
       )}

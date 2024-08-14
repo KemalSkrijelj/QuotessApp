@@ -60,6 +60,9 @@ const Quotes = () => {
         id: Date.now(),
         content: inputValue,
         author: inputValueAuthor,
+        upvotesCount: 0, 
+        downvotesCount: 0, 
+        isFetched: false, 
       };
 
       const isDuplicate = data.quotes.some(
@@ -86,7 +89,6 @@ const Quotes = () => {
       setModalVisible(true);
     }
   };
-
   const closeModal = () => {
     setModalVisible(false);
   };
@@ -96,6 +98,7 @@ const Quotes = () => {
     setData({ quotes: updatedQuotes });
     localStorage.setItem("quotes", JSON.stringify(updatedQuotes));
   };
+
   const restoreAllQuotes = () => {
     setShouldRefresh(true);
   };
@@ -124,7 +127,7 @@ const Quotes = () => {
           <button
             className="restoreQuotes"
             onClick={restoreAllQuotes}
-            style={{ backgroundColor: data.length < 5 ? "#1d2121" : "#008000"}}
+            style={{ backgroundColor: data.length < 5 ? "#1d2121" : "#008000" }}
           >
             Restore all quotes
           </button>
@@ -135,11 +138,14 @@ const Quotes = () => {
               .map((quote) => (
                 <QuotesCard
                   key={quote.id}
+                  upvotesCount={quote.upvotesCount}
+                  downvotesCount={quote.downvotesCount}
                   id={quote.id}
                   author={quote.author}
                   content={quote.content}
                   tags={quote.tags}
                   onClick={deleteQuote}
+                  isFetched={quote.isFetched}
                 />
               ))
               .slice(numOfQuotesPerPage * (page - 1), numOfQuotesPerPage * page)

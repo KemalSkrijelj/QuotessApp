@@ -1,14 +1,14 @@
 import React from "react";
-import Home from "../../pages/Home/Home";
+import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
-  const localLoggedInUser = localStorage.getItem("loggedInUser");
+  const token = localStorage.getItem("token");
 
-  if (localLoggedInUser) {
-    return children;
-  } else {
-    return <Home/>;
+  if (!token) {
+    return <Navigate to="/" />;
   }
+
+  return children;
 };
 
 export default ProtectedRoute;

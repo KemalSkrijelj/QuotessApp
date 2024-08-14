@@ -8,10 +8,11 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    setLoggedInUser(null);
-    localStorage.removeItem("loggedInUser");
-    navigate("/");
+    localStorage.removeItem("token");  
+    setLoggedInUser(null);  
+    navigate("/");  
   };
+  
   const handleLogin = () => {
     navigate("/login");
   };

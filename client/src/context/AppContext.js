@@ -6,9 +6,9 @@ const UserProvider = ({ children }) => {
   const [loggedInUser, setLoggedInUser] = useState(null);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("loggedInUser");
-    if (storedUser) {
-      setLoggedInUser(JSON.parse(storedUser));
+    const token = localStorage.getItem("token");
+    if (token) {
+      setLoggedInUser({ token });
     }
   }, []);
 
