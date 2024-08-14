@@ -1,103 +1,50 @@
-# This is the project for the end of the IT camp
+# QuotesApp
+QuotesApp is a simple React application that allows users to browse, add, and manage quotes. The application features user-friendly pagination, like/dislike buttons for each quote, and persistence of added quotes even after a page reload. The app is also equipped with a modal that displays upon successful login and when new quotes are added.
 
-Project containes folders for API and CLIENT. You only need to modify the client side of the project.
-Open VS Code of the client folder and create the app for the Test.pdf requirements.
+## Table of Contents
+- Features
+- Installation
+- Usage
+- Contributing
+-License
+- Features
+## View Quotes: Browse through a list of inspirational quotes.
+## Add Quotes: Add new quotes via a simple input form.
+## Like/Dislike Quotes: Interact with quotes using like and dislike buttons.
+## Pagination: Quotes are paginated for easier navigation.
+## Persistence: Added quotes persist even after a page reload.
+## Modal on Login: A modal displays upon successful login.
+## Prevent Duplicates: Duplicate quotes are detected and managed appropriately.
 
-# Run the API app
+# Installation
 
-## Open an VS Code instance of the api folder
+1. Clone the repository:
+git clone https://github.com/kemalskrijelj/QuotessApp.git
+2. Navigate to the project directory:
+cd QuotessApp
+3. Install dependencies:
+npm install
+4. Start the development server:
+npm start
+Open your browser and navigate to http://localhost:3000 to view the app.
 
-### Install packages:
+# Key Components
+QuoteList: Displays a list of quotes with pagination.
+AddQuoteForm: A form to add new quotes to the list.
+QuoteItem: Represents a single quote with like/dislike functionality.
+Modal: Shows a modal upon successful login and when new quotes are added.
+Price Handling
+For users coming from an outlet, only the priceWithDiscount is displayed in the cart.
 
-    npm i
+## Managing Quotes
+The application fetches quotes from a server and ensures that no duplicates are added.
+Upon adding a new quote, the application checks to prevent duplicates and displays a modal if a new quote is successfully added.
+Contributing
+Contributions are welcome! Please follow these steps:
 
-### Run the project:
+# Fork the repository.
+Create a new branch (git checkout -b feature-branch).
+Make your changes and commit them (git commit -m 'Add some feature').
+Push to the branch (git push origin feature-branch).
+Open a Pull Request.
 
-    node index.js
-
-## Open an VS Code instance of the client folder
-
-### Install packages:
-
-    npm i
-
-### Run the project:
-
-    npm start
-
-# Additional tasks:
-
-## 1. Create Login page
-
-Login page in which you have two inputs (username, password) and a submit button.
-Users you can login with:
-
-    {
-        username: "fazi",
-        password: "1234",
-    },
-    {
-        username: "pera",
-        password: "1234",
-    },
-    {
-        username: "mika",
-        password: "1234",
-    },
-    {
-        username: "zika",
-        password: "1234",
-    }
-
-### Make Login request
-
-    Post http://localhost:8000/sessions
-
-### Request body:
-
-    {
-        "username":"zika",
-        "password": "1234"
-    }
-
-### Request response:
-
-    {
-        "accessToken": "yuim98oq-e275-45a2-bc2e-b3098036d655"
-    }
-
-## 2. Add Logout button on the quotes page
-
-## 3. Create logout logic on the logout button
-
-# Requests that require access token in the header:
-
-    GET http://localhost:8000/tags
-
-    GET http://localhost:8000/quotes
-
-    GET http://localhost:8000/quotes/:id
-
-    POST http://localhost:8000/quotes
-
-    POST http://localhost:8000/quotes/:id/upvote
-
-    DELETE http://localhost:8000/quotes/:id/upvote
-
-    POST http://localhost:8000/quotes/:id/downvote
-
-    DELETE http://localhost:8000/quotes/:id/downvote
-
-#Example of the request that uses an accessToken:
-
-    const accessToken = "yuim98oq-e275-45a2-bc2e-b3098036d655";
-    useEffect(() => {
-    axios
-      .get("http://localhost:8000/quotes", {
-        headers: { Authorization: "Bearer " + accessToken },
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.log);
-    }, []);
-
-## Other instructions can be found in the Test.pdf file inside the Repository.
